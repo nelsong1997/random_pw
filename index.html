@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="paragraph"></p>
+    <button id="button">generate</button>
+</body>
+<script>
+    let p = document.getElementById("paragraph")
+    let button = document.getElementById("button")
+
+    let theString = ""
+    function changeIt() {
+        theString = ""
+        for (let i=0; i<64; i++) {
+            theString = theString + String.fromCharCode(randomInteger(33, 126))
+        }
+        p.textContent = theString
+    }
+
+    button.addEventListener("click", ()=>{changeIt()})
+
+    function randomInteger(min, max) {
+        let range = max - min + 1
+        return Math.floor(range*(Math.random())) + min
+    }
+</script>
+</html>
